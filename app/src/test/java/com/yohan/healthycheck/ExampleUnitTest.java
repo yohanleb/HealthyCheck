@@ -1,4 +1,4 @@
-package com.example.healthycheck;
+package com.yohan.healthycheck;
 
 import org.junit.Test;
 
