@@ -2,31 +2,23 @@ package com.yohan.healthycheck.data;
 
 import com.yohan.healthycheck.model.APIResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.yohan.healthycheck.view.MainActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIController implements Callback<APIResponse> {
 
-    private static final String BASE_URL = "https://fr.openfoodfacts.org/api/v0/";
+    private MainActivity view;
+
+    private OpenFoodFactsAPI openFoodFactsAPI;
+
+    public APIController(MainActivity view, OpenFoodFactsAPI openFoodFactsAPI) {
+        this.view = view;
+        this.openFoodFactsAPI = openFoodFactsAPI;
+    }
 
     public void start(String idProduct) {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        OpenFoodFactsAPI openFoodFactsAPI = retrofit.create(OpenFoodFactsAPI.class);
-
         Call<APIResponse> call = openFoodFactsAPI.loadAPIResponse(idProduct);
         call.enqueue(this);
     }
@@ -35,9 +27,7 @@ public class APIController implements Callback<APIResponse> {
     public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
         if(response.isSuccessful()) {
             APIResponse apiResponse = response.body();
-            MainActivity.updateUi(apiResponse.getProduct().getGeneric_name() + " : " + apiResponse.getProduct().getProduct_name());
-
-            // System.out.println(apiResponse.getProduct().getGeneric_name() + " : " + apiResponse.getProduct().getProduct_name());
+            view.refreshList(apiResponse.getProduct());
             System.out.println("API Call Successful");
         }else {
             System.out.println("API Call Unsuccessful");
