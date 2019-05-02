@@ -21,20 +21,4 @@ public class APIResponse {
     public Product getProduct() {
         return product;
     }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setStatus_verbose(String status_verbose) {
-        this.status_verbose = status_verbose;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 }

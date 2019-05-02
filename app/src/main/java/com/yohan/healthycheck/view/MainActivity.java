@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ArrayList<Product> products;
+    private static ArrayList<Product> products = new ArrayList<>();
     private RecyclerView rvProducts;
 
     private FloatingActionButton cameraButton;
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refreshList (Product product) {
-        products = new ArrayList<>();
         products.add(product);
         products.add(product);
         products.add(product);

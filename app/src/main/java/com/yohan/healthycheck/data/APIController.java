@@ -10,7 +10,6 @@ import retrofit2.Response;
 public class APIController implements Callback<APIResponse> {
 
     private MainActivity view;
-
     private OpenFoodFactsAPI openFoodFactsAPI;
 
     public APIController(MainActivity view, OpenFoodFactsAPI openFoodFactsAPI) {
