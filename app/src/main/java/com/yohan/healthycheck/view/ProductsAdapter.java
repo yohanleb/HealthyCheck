@@ -21,20 +21,18 @@ public class ProductsAdapter extends
     private List<Product> productsList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
         private ImageView productImageView;
         private TextView productNameTextView;
         private TextView nutritionScoreTextView;
 
-        // We also create a constructor that accepts the entire item row
-        // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
-            // Stores the itemView in a public final member variable that can be used
-            // to access the context from any ViewHolder instance.
             super(itemView);
 
-            itemView.setOnClickListener(v -> v.getContext().startActivity(new Intent(v.getContext(), ProductDetailActivity.class)));
+            itemView.setOnClickListener(v -> {
+                Intent newIntent = new Intent(v.getContext(), ProductDetailActivity.class);
+                newIntent.putExtra("Product", productsList.get(getAdapterPosition()));
+                v.getContext().startActivity(newIntent);
+            });
 
             productImageView = itemView.findViewById(R.id.product_image);
             productNameTextView = itemView.findViewById(R.id.product_name);
