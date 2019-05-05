@@ -1,5 +1,6 @@
 package com.yohan.healthycheck.data;
 
+import android.widget.Toast;
 import com.yohan.healthycheck.model.APIResponse;
 
 import com.yohan.healthycheck.view.MainActivity;
@@ -26,8 +27,12 @@ public class APIController implements Callback<APIResponse> {
     public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
         if(response.isSuccessful()) {
             APIResponse apiResponse = response.body();
-            view.refreshList(apiResponse.getProduct());
-            System.out.println("API Call Successful");
+            if (apiResponse.getProduct().getProduct_name() != null && apiResponse.getStatus() != 0) {
+                view.refreshList(apiResponse.getProduct());
+                System.out.println("API Call Successful");
+            } else {
+                Toast.makeText(view, "Sorry, Product not found...", Toast.LENGTH_LONG).show();
+            }
         }else {
             System.out.println("API Call Unsuccessful");
         }
