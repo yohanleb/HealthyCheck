@@ -2,27 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           package="com.yohan.healthycheck">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
-            android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name="com.yohan.healthycheck.view.MainActivity">
+            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+                android:name="com.yohan.healthycheck.view.SplashActivity"
+                android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.yohan.healthycheck.view.MainActivity"
+                  android:label="@string/scanned_products_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.ProductDetailActivity"/>
+
+        <activity android:name="com.yohan.healthycheck.view.ProductDetailActivity"
+                  android:label="@string/product_title">
+        </activity>
+
         <activity
                 android:name="com.journeyapps.barcodescanner.CaptureActivity"
                 android:screenOrientation="portrait"
                 tools:replace="android:screenOrientation"
                 android:stateNotNeeded="true"/>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

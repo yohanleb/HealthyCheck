@@ -2,6 +2,7 @@ package com.yohan.healthycheck.view;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         rvProducts.setAdapter(adapter);
         rvProducts.setLayoutManager(new LinearLayoutManager(this));
+        Snackbar.make(findViewById(android.R.id.content), R.string.product_added, Snackbar.LENGTH_SHORT)
+                .show();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {

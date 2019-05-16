@@ -5,11 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.MainActivity">
+        tools:context=".view.MainActivity"
+        android:background="#f5f5f5" android:id="@+id/main_constraint_layout">
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="371dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +27,5 @@
             app:srcCompat="@drawable/barcode"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:backgroundTint="@color/colorPrimary"
             tools:ignore="VectorDrawableCompat"/>
 </android.support.constraint.ConstraintLayout>
