@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HealthyCheck</string>
+    <string name="product_image">Product Image</string>
+    <string name="nutrition_grade_color">Nutrition Grade Color</string>
+    <string name="scanned_products_title">Scanned Products</string>
+    <string name="product_title">Product</string>
+    <string name="ingredients_title">Ingredients :</string>
+    <string name="saturated_fat">Saturated Fat :</string>
+    <string name="salt">Salt :</string>
+    <string name="product_added">Product added to the list</string>
 </resources>

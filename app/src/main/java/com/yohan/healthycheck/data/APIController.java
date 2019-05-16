@@ -27,13 +27,13 @@ public class APIController implements Callback<APIResponse> {
     public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
         if(response.isSuccessful()) {
             APIResponse apiResponse = response.body();
-            if (apiResponse.getProduct().getProduct_name() != null && apiResponse.getStatus() != 0) {
+            if (apiResponse.getProduct().getProductName() != null && apiResponse.getStatus() != 0) {
                 view.refreshList(apiResponse.getProduct());
                 System.out.println("API Call Successful");
             } else {
                 Toast.makeText(view, "Sorry, Product not found...", Toast.LENGTH_LONG).show();
             }
-        }else {
+        } else {
             System.out.println("API Call Unsuccessful");
         }
     }
