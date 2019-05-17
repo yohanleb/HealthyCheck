@@ -43,8 +43,8 @@ public class ProductsAdapter extends
         }
     }
 
-    public ProductsAdapter(List<Product> contacts) {
-        productsList = contacts;
+    public ProductsAdapter(List<Product> products) {
+        productsList = products;
     }
 
     @NonNull
