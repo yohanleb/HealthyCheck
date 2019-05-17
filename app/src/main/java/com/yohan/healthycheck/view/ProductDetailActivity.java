@@ -15,8 +15,6 @@ import com.yohan.healthycheck.model.Product;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
-    private Product product;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +23,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         this.overridePendingTransition(R.anim.slide_in_right,
                 R.anim.slide_out_left);
 
-        product = (Product) getIntent().getSerializableExtra("Product");
+        Product product = (Product) getIntent().getSerializableExtra("Product");
 
         ImageView productImageView = findViewById(R.id.product_image);
         Picasso.get().load(product.getImageUrl()).into(productImageView);
@@ -40,17 +38,16 @@ public class ProductDetailActivity extends AppCompatActivity {
         nutritionGradeText.setText(product.getNutritionGradeText());
 
         TextView ingredientsText = findViewById(R.id.ingredients);
-        // TODO : Revoir le bold
         ingredientsText.setText(Html.fromHtml(product.getIngredientsTextFR().replace("</span>", "</b>").replace("<span class=\"allergen\">", "<b>")));
 
         NutrientLevels nutrientLevels = product.getNutrientLevels();
         Nutriments nutriments = product.getNutriments();
 
-        ImageView saturedFatLevelColor = findViewById(R.id.satured_fat_level_color);
-        saturedFatLevelColor.setColorFilter(Color.parseColor(nutrientLevels.getNutrientLevelColor(nutrientLevels.getSaturedFat())));
+        ImageView saturatedFatLevelColor = findViewById(R.id.saturated_fat_level_color);
+        saturatedFatLevelColor.setColorFilter(Color.parseColor(nutrientLevels.getNutrientLevelColor(nutrientLevels.getSaturedFat())));
 
-        TextView saturedFatLevelText = findViewById(R.id.satured_fat_level_text);
-        saturedFatLevelText.setText(String.format("%sg/100g", Float.toString(nutriments.getSaturatedFat_100g())));
+        TextView saturatedFatLevelText = findViewById(R.id.saturated_fat_level_text);
+        saturatedFatLevelText.setText(String.format("%sg/100g", Float.toString(nutriments.getSaturatedFat_100g())));
 
         ImageView saltLevelColor = findViewById(R.id.salt_level_color);
         saltLevelColor.setColorFilter(Color.parseColor(nutrientLevels.getNutrientLevelColor(nutrientLevels.getSalt())));
