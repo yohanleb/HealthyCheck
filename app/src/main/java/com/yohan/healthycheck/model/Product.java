@@ -15,6 +15,10 @@ public class Product implements Serializable {
         return image_url;
     }
 
+    public String getGenericName() {
+        return generic_name;
+    }
+
     public String getProductName() {
         return product_name;
     }
@@ -32,6 +36,7 @@ public class Product implements Serializable {
     }
 
     public String getNutritionGradeText() {
+        if (nutrition_grade_fr == null) return "Unknown";
         switch (nutrition_grade_fr) {
             case "a":
                 return "Excellent";
@@ -48,6 +53,7 @@ public class Product implements Serializable {
     }
 
     public String getNutritionGradeColor() {
+        if (nutrition_grade_fr == null) return "#bdc3c7";
         switch (nutrition_grade_fr) {
             case "a":
                 return "#27ae60";

@@ -9,4 +9,5 @@
     <string name="salt">Salt :</string>
     <string name="product_added">Product added to the list</string>
     <string name="empty_list_title">You haven\'t scanned products yet ! \nHit the scan button :)</string>
+    <string name="sugar">Sugar :</string>
 </resources>

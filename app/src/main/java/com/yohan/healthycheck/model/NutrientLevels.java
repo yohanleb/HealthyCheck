@@ -28,6 +28,7 @@ public class NutrientLevels implements Serializable {
     }
 
     public String getNutrientLevelColor(String nutrient) {
+        if (nutrient == null) return "#bdc3c7";
         switch (nutrient) {
             case "high":
                 return "#e74c3c";
@@ -36,7 +37,7 @@ public class NutrientLevels implements Serializable {
             case "low":
                 return "#27ae60";
             default:
-                return "Unknown";
+                return "#bdc3c7";
         }
     }
 

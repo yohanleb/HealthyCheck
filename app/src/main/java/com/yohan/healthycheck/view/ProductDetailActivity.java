@@ -54,6 +54,12 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         TextView saltLevelText = findViewById(R.id.salt_level_text);
         saltLevelText.setText(String.format("%sg/100g", Float.toString(nutriments.getSalt_100g())));
+
+        ImageView sugarLevelColor = findViewById(R.id.sugar_level_color);
+        sugarLevelColor.setColorFilter(Color.parseColor(nutrientLevels.getNutrientLevelColor(nutrientLevels.getSugars())));
+
+        TextView sugarLevelText = findViewById(R.id.sugar_level_text);
+        sugarLevelText.setText(String.format("%sg/100g", Float.toString(nutriments.getSugars_100g())));
     }
 
     @Override
