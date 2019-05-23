@@ -29,23 +29,21 @@ HealthyCheck is an Android app who uses OpenFoodFacts' API to check if your food
 
 The first screen is a loading screen with the HealthyCheck logo
 
-### Scanner
-<img src="img/scanner.jpeg" width="250" height="" />
-
-You can scan products by clicking on the scan button
-
 ### Scanned products list
 <img src="img/product_list.jpeg" width="250" height="" />
 
 You can view all your scanned products in the list
 
 ### Detailed view of a product
-<img src="img/product_detail1.jpeg" width="250" height="" />
-<img src="img/product_detail2.jpeg" width="250" height="" />
-<img src="img/product_detail3.jpeg" width="250" height="" />
+<img src="img/product_detail1.jpeg" width="250" height=""/> <img src="img/product_detail2.jpeg" width="250" height=""/> <img src="img/product_detail3.jpeg" width="250" height=""/>
 
 You can view the detail of a product by clicking on it in the list
 This view shows the name of the product, the ingredients and the quantity of saturated fat, salt and sugar.
+
+### Scanner
+<img src="img/scanner.jpeg" width="250" height="" />
+
+You can scan products by clicking on the scan button
 
 ### Animations
 There are animations between two views
