@@ -2,6 +2,7 @@ package com.yohan.healthycheck.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,29 +22,29 @@ public class ProductsAdapter extends
     private List<Product> productsList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
         private ImageView productImageView;
         private TextView productNameTextView;
-        private TextView nutritionScoreTextView;
+        private ImageView nutritionGradeImageView;
+        private TextView nutritionGradeTextView;
 
-        // We also create a constructor that accepts the entire item row
-        // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
-            // Stores the itemView in a public final member variable that can be used
-            // to access the context from any ViewHolder instance.
             super(itemView);
 
-            itemView.setOnClickListener(v -> v.getContext().startActivity(new Intent(v.getContext(), ProductDetailActivity.class)));
+            itemView.setOnClickListener(v -> {
+                Intent newIntent = new Intent(v.getContext(), ProductDetailActivity.class);
+                newIntent.putExtra("Product", productsList.get(getAdapterPosition()));
+                v.getContext().startActivity(newIntent);
+            });
 
             productImageView = itemView.findViewById(R.id.product_image);
             productNameTextView = itemView.findViewById(R.id.product_name);
-            nutritionScoreTextView = itemView.findViewById(R.id.nutrition_score);
+            nutritionGradeImageView = itemView.findViewById(R.id.nutrition_grade_color);
+            nutritionGradeTextView = itemView.findViewById(R.id.nutrition_grade);
         }
     }
 
-    public ProductsAdapter(List<Product> contacts) {
-        productsList = contacts;
+    public ProductsAdapter(List<Product> products) {
+        productsList = products;
     }
 
     @NonNull
@@ -64,12 +65,14 @@ public class ProductsAdapter extends
 
         // Set item views based on your views and data model
         ImageView imageView = viewHolder.productImageView;
-        Picasso.get().load(product.getImage_url()).into(imageView);
+        Picasso.get().load(product.getImageUrl()).into(imageView);
 
         TextView textView = viewHolder.productNameTextView;
-        textView.setText(product.getProduct_name());
-        TextView textView2 = viewHolder.nutritionScoreTextView;
-        textView2.setText(product.getNutrition_grade_fr().toUpperCase());
+        textView.setText(product.getProductName());
+        ImageView imageViewColor = viewHolder.nutritionGradeImageView;
+        imageViewColor.setColorFilter(Color.parseColor(product.getNutritionGradeColor()));
+        TextView textView2 = viewHolder.nutritionGradeTextView;
+        textView2.setText(product.getNutritionGradeText());
     }
 
     @Override
