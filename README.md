@@ -19,6 +19,7 @@ HealthyCheck is an Android app who uses OpenFoodFacts' API to check if your food
 - Gitflow
 - Animations between two views
 - Data stored in cache
+- Crash reports
 - More features : 
 	- Scanner view
 	- Material Cards
@@ -48,6 +49,11 @@ You can scan products by clicking on the scan button.
 
 ### Animations
 There are animations between two views.
+
+### Crash reports
+<img src="img/crash_reports.png" width="250" height="" />
+
+To keep the app updated and bug free
 
 ## Warning
 The application is not a nutrionist. It can make errors so keep a critical eye.
